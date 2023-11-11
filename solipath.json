@@ -1,0 +1,4 @@
+[
+	{"name": "java", "version": "21"},
+	{"name": "sbt", "version": "1.9.7"}
+]
