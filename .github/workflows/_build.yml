@@ -1,0 +1,22 @@
+name: Build Scala
+on:
+  workflow_dispatch:
+  workflow_call:
+jobs:
+  build:
+
+    runs-on: ${{matrix.os}}
+
+    strategy: 
+      matrix:
+        include:
+          - os: macos-latest
+            command: ./solipath sbt test
+          - os: ubuntu-latest
+            command: ./solipath sbt test
+          - os: windows-latest
+            command: .\solipath.bat sbt test
+    steps:
+    - uses: actions/checkout@v2
+    - name: Run tests
+      run: ${{matrix.command}}
